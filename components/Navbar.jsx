@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 
 const navItems = [
-  { name: "Home", href: "/home" },
-  { name: "About", href: "/about" },
-  { name: "Gallery", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Contact", href: "#contact" },
 ]
 
 export function Navbar() {
@@ -48,7 +48,7 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>

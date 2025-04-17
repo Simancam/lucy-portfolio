@@ -3,6 +3,7 @@
 import CircularGallery from "@/components/ui/CircularGallery";
 import TrueFocus from "@/components/ui/TrueFocus";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Gallery = () => {
   return (
@@ -34,12 +35,14 @@ const Gallery = () => {
         />
       </div>
       <div className="flex justify-center mt-8">
-        <Button
-          variant="outline"
-          className="px-6 py-2 border-zinc-500 text-zinc-500 hover:text-zinc-300 hover:border-zinc-300 transition-colors"
-        >
-          See More
-        </Button>
+        <Link href="/gallery" passHref>
+          <Button
+            variant="outline"
+            className="px-6 py-2 border-zinc-500 text-zinc-500 hover:text-zinc-300 hover:border-zinc-300 transition-colors"
+          >
+            See More
+          </Button>
+        </Link>
       </div>
     </section>
   );

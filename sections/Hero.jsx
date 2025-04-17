@@ -39,7 +39,7 @@ export default function Hero() {
 
   return (
     <section
-      ref={heroRef} id="hero"
+      ref={heroRef} id="home"
       className="relative w-full overflow-hidden bg-gradient-to-br from-[var(--background)] to-[rgba(6,6,6,0.8)] py-20 md:py-32 min-h-screen flex items-center border-b border-dashed border-white/10"
     >
       {/* Background elements */}

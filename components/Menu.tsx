@@ -10,28 +10,29 @@ const menuItems = [
 ];
 
 const socialItems = [
-  { label: "Instagram", link: "https://twitter.com" },
+  { label: "Instagram", link: "https://www.instagram.com/dami26k/" },
   { label: "WhatsApp", link: "https://github.com" },
   { label: "LinkedIn", link: "https://linkedin.com" },
 ];
 
 export default function Menu() {
   return (
-    <div style={{ height: "100vh" }}>
-      <StaggeredMenu
-        isFixed={true}
-        position="right"
-        items={menuItems}
-        socialItems={socialItems}
-        displaySocials
-        displayItemNumbering={true}
-        menuButtonColor="#ffffff"
-        openMenuButtonColor="#fff"
-        changeMenuColorOnOpen={true}
-        colors={["#B19EEF", "#8d47f5"]}
-        logoUrl="/path-to-your-logo.svg"
-        accentColor="#8d47f5"
-      />
+    <div className="fixed inset-0 z-9999 pointer-events-none">
+      <div className="pointer-events-auto h-screen">
+        <StaggeredMenu
+          isFixed={true}
+          position="right"
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials
+          displayItemNumbering={true}
+          menuButtonColor="#ffffff"
+          openMenuButtonColor="#fff"
+          changeMenuColorOnOpen={true}
+          colors={["#B19EEF", "#8d47f5"]}
+          accentColor="#8d47f5"
+        />
+      </div>
     </div>
   );
 }

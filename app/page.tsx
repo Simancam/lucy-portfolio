@@ -1,6 +1,7 @@
 import { AboutSection } from "@/sections/About";
 import Hero from "@/sections/Hero";
 import { FadeDivider } from "@/components/FadeDivider";
+import ProjectsSections from "@/sections/Projects";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <Hero />
         <FadeDivider />
         <AboutSection/>
+        <ProjectsSections />
       </div>
     </>
   );

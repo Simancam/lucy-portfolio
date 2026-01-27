@@ -14,6 +14,7 @@ import {
   SiCanva,
 } from "react-icons/si";
 import TrueFocus from "@/components/TrueFocus";
+import { plex } from "@/lib/fonts";
 
 export function AboutSection() {
   const { ref: bannerRef, isInView: bannerInView } = useScrollAnimation({
@@ -90,7 +91,7 @@ export function AboutSection() {
             }`}
           >
             <div className="flex flex-col items-start gap-3">
-              <span className="text-accent text-sm tracking-[0.3em] uppercase font-mono">
+              <span className={`${plex.className} text-accent text-sm tracking-[0.3em] opacity-30`}>
                 Introduction
               </span>
 

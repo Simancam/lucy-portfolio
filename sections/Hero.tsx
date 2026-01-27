@@ -2,17 +2,20 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Background from "@/components/Background";
-import Menu from "@/components/Menu";
+import Background from "@/components/Background";;
 import SplitText from "@/components/SplitText";
-import { plex, Canela, cyberpunk } from "@/lib/fonts";
+import { plex, cyberpunk } from "@/lib/fonts";
 import { heroAnimations } from "@/animations/heroAnimations";
+import { useLoader } from "@/components/LoaderContext";
 
 export default function Hero() {
   const dividerRef = useRef<HTMLSpanElement>(null);
   const secondaryTextRef = useRef<HTMLDivElement>(null);
+  const { loading } = useLoader();
 
   useEffect(() => {
+    if (loading) return;
+
     const ctx = gsap.context(() => {
       heroAnimations({
         divider: dividerRef.current,
@@ -21,12 +24,10 @@ export default function Hero() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [loading]);
 
   return (
     <Background>
-      <Menu />
-
       <div className="absolute bottom-0 left-0 w-full px-6 py-12 flex flex-col items-center gap-6">
         <SplitText
           text="Lucy Gomez"

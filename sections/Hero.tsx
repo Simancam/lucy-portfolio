@@ -2,11 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Background from "@/components/Background";;
-import SplitText from "@/components/SplitText";
+import SplitText from "@/components/hero/SplitText";
 import { plex, cyberpunk } from "@/lib/fonts";
 import { heroAnimations } from "@/animations/heroAnimations";
-import { useLoader } from "@/components/LoaderContext";
+import { useLoader } from "@/components/hero/LoaderContext";
+import FaultyTerminal from "@/components/hero/FaultyTerminal";
 
 export default function Hero() {
   const dividerRef = useRef<HTMLSpanElement>(null);
@@ -27,36 +27,62 @@ export default function Hero() {
   }, [loading]);
 
   return (
-    <Background>
-      <div className="absolute bottom-0 left-0 w-full px-6 py-12 flex flex-col items-center gap-6">
-        <SplitText
-          text="Lucy Gomez"
-          className={`${cyberpunk.className} w-full text-center text-[clamp(2rem,6vw,10rem)] tracking-[0.35em] leading-none text-white/90`}
-          delay={50}
-          duration={1.25}
-          ease="power3.out"
-          splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
-          threshold={0.1}
-          rootMargin="-100px"
-          textAlign="center"
+    <section className="relative min-h-screen w-full overflow-hidden">
+      {/* FaultyTerminal como fondo */}
+      <div className="absolute inset-0 -z-10">
+        <FaultyTerminal
+          scale={1.5}
+          gridMul={[2, 1]}
+          digitSize={1.2}
+          timeScale={0.5}
+          pause={false}
+          scanlineIntensity={0.5}
+          glitchAmount={1}
+          flickerAmount={1}
+          noiseAmp={1}
+          chromaticAberration={0}
+          dither={0}
+          curvature={0.1}
+          tint="#8d47f5"
+          mouseReact
+          mouseStrength={0.5}
+          pageLoadAnimation
+          brightness={0.6}
         />
+      </div>
 
-        <span
-          ref={dividerRef}
-          className="block w-full h-px bg-white/70 origin-center opacity-0"
-        />
+      {/* Contenido principal */}
+      <div className="relative z-10 flex h-screen flex-col justify-end pb-12">
+        <div className="w-full px-6">
+          <SplitText
+            text="Lucy Gomez"
+            className={`${cyberpunk.className} w-full text-center text-[clamp(2rem,6vw,10rem)] tracking-[0.35em] leading-none text-white/90`}
+            delay={50}
+            duration={1.25}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
 
-        <div
-          ref={secondaryTextRef}
-          className={`${plex.className} w-full flex justify-between items-center text-white text-xl`}
-        >
-          <span className="opacity-0">Diseno</span>
-          <span className="opacity-0">Fotografia</span>
-          <span className="opacity-0">Modelaje</span>
+          <span
+            ref={dividerRef}
+            className="block w-full h-px bg-white/70 origin-center opacity-0 mt-6"
+          />
+
+          <div
+            ref={secondaryTextRef}
+            className={`${plex.className} w-full flex justify-between items-center text-white text-xl mt-6`}
+          >
+            <span className="opacity-0">Diseño</span>
+            <span className="opacity-0">Fotografía</span>
+            <span className="opacity-0">Modelaje</span>
+          </div>
         </div>
       </div>
-    </Background>
+    </section>
   );
 }

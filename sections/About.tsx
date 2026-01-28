@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useScrollAnimation } from "@/animations/aboutAnimations";
-import LogoLoop from "@/components/LogoLoop";
+import LogoLoop from "@/components/about/LogoLoop";
 import {
   SiDavinciresolve,
   SiAdobephotoshop,
@@ -13,7 +13,7 @@ import {
   SiWondersharefilmora,
   SiCanva,
 } from "react-icons/si";
-import TrueFocus from "@/components/TrueFocus";
+import TrueFocus from "@/components/about/TrueFocus";
 import { plex } from "@/lib/fonts";
 
 export function AboutSection() {

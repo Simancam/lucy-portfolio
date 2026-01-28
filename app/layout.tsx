@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageLoader from "@/components/PageLoader";
-import { LoaderProvider } from "@/components/LoaderContext";
+import { LoaderProvider } from "@/components/hero/LoaderContext";
 import "./globals.css";
 
 export const metadata: Metadata = {

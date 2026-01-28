@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { LoaderOne } from "./Loader";
-import { useLoader } from "./LoaderContext";
+import { useLoader } from "./hero/LoaderContext";
 
 export default function PageLoader() {
   const { loading, setLoading } = useLoader();

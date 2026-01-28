@@ -4,11 +4,11 @@ import * as React from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ProjectsCarousel } from "@/components/ProjectsCarousel";
+import { ProjectsCarousel } from "@/components/projects/ProjectsCarousel";
 import { projectsAnimations } from "@/animations/projectsAnimations";
-import ShinyText from "@/components/ShinyText";
+import ShinyText from "@/components/projects/ShinyText";
 import { plex } from "@/lib/fonts";
-
+import PixelSnow from "@/components/projects/PixelSnow";
 
 const projects = [
   {
@@ -99,7 +99,6 @@ export default function ProjectsSection() {
   }, [emblaApi, onSelect]);
 
   React.useEffect(() => {
-    // Inicializar animaciones
     projectsAnimations();
   }, []);
 
@@ -108,11 +107,31 @@ export default function ProjectsSection() {
       id="projects-section"
       className="relative w-full overflow-hidden py-16 md:py-24"
     >
+      {/* PixelSnow como fondo */}
+      <div className="absolute inset-0 -z-10">
+        <PixelSnow
+          color="#ffffff"
+          flakeSize={0.01}
+          minFlakeSize={1.25}
+          pixelResolution={200}
+          speed={1.25}
+          density={0.3}
+          direction={125}
+          brightness={1}
+          depthFade={8}
+          farPlane={20}
+          gamma={0.4545}
+          variant="square"
+        />
+      </div>
+
       {/* Header */}
       <div className="mx-auto mb-12 max-w-7xl px-6 md:px-12">
         <div className="flex items-end justify-between">
           <div>
-            <p className={`${plex.className} section-subtitle mb-2 text-sm tracking-widest opacity-30`}>
+            <p
+              className={`${plex.className} section-subtitle mb-2 text-sm tracking-widest opacity-30`}
+            >
               Selected Works
             </p>
             <ShinyText
@@ -138,7 +157,7 @@ export default function ProjectsSection() {
               onClick={scrollPrev}
               className={cn(
                 "h-12 w-12 rounded-full border-2 border-foreground/20 bg-transparent transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background",
-                !canScrollPrev && "opacity-50 cursor-not-allowed",
+                !canScrollPrev && "opacity-50 cursor-not-allowed"
               )}
               aria-label="Previous slide"
               disabled={!canScrollPrev}
@@ -151,7 +170,7 @@ export default function ProjectsSection() {
               onClick={scrollNext}
               className={cn(
                 "h-12 w-12 rounded-full border-2 border-foreground/20 bg-transparent transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background",
-                !canScrollNext && "opacity-50 cursor-not-allowed",
+                !canScrollNext && "opacity-50 cursor-not-allowed"
               )}
               aria-label="Next slide"
               disabled={!canScrollNext}

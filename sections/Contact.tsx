@@ -1,9 +1,12 @@
 "use client";
 
 import Silk from "@/components/contact/Silk";
-import { Sparkle } from "lucide-react";
+import { useContactAnimations } from "@/animations/contactAnimations";
+import { SiGooglegemini } from "react-icons/si";
 
 export default function ContactSection() {
+  const { icon1Ref, icon2Ref, buttonRef } = useContactAnimations();
+
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center p-8">
       {/* Contenedor principal - 80% del viewport con márgenes */}
@@ -29,9 +32,17 @@ export default function ContactSection() {
 
           {/* CTA Area - abajo a la derecha */}
           <div className="flex flex-col items-end self-end">
-            <button className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm text-white font-medium transition-all hover:bg-white/20 hover:border-white/60 mb-3">
+            <button
+              ref={buttonRef}
+              className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm text-white font-medium transition-all hover:bg-white/20 hover:border-white/60 mb-3"
+            >
+              <span ref={icon1Ref} className="inline-flex">
+                <SiGooglegemini className="w-4 h-4" />
+              </span>
               <span>{"Let's talk"}</span>
-              <Sparkle className="w-4 h-4" />
+              <span ref={icon2Ref} className="inline-flex">
+                <SiGooglegemini className="w-4 h-4" />
+              </span>
             </button>
             <p className="text-white/70 text-sm text-right">
               {"Don't like flashy buttons? Reach out at "}

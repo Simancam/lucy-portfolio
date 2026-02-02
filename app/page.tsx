@@ -6,23 +6,20 @@ import { FadeDivider } from "@/components/FadeDivider";
 import ProjectsSections from "@/sections/Projects";
 import ContactSection from "@/sections/Contact";
 import PillNav from "@/components/PillNav";
-import logo from "@/public/vercel.svg";
 
 export default function Home() {
   return (
     <>
-      {/* Navbar wrapper */}
+      {/* Navbar */}
       <div className="fixed top-6 left-0 w-full z-50 flex justify-center px-4">
         <PillNav
-          logo={logo}
-          logoAlt="Lucy Gomez Logo"
           items={[
-            { label: "Home", href: "/" },
-            { label: "About", href: "/about" },
-            { label: "Services", href: "/services" },
-            { label: "Contact", href: "/contact" },
+            { label: "Inicio", href: "#home" },
+            { label: "Sobre Mi", href: "#about" },
+            { label: "Proyectos", href: "#projects" },
+            { label: "Contacto", href: "#contact" },
           ]}
-          activeHref="/"
+          activeHref="#home"
           ease="power2.easeOut"
           baseColor="#000000"
           pillColor="#ffffff"
@@ -33,15 +30,29 @@ export default function Home() {
       </div>
 
       {/* Page content */}
-      <div style={{ width: "100%", height: "200vh", position: "relative" }}>
-        <Hero />
+      <main className="relative">
+        <section id="home">
+          <Hero />
+        </section>
+
         <FadeDivider />
-        <AboutSection />
+
+        <section id="about">
+          <AboutSection />
+        </section>
+
         <FadeDivider />
-        <ProjectsSections />
+
+        <section id="projects">
+          <ProjectsSections />
+        </section>
+
         <FadeDivider />
-        <ContactSection />
-      </div>
+
+        <section id="contact">
+          <ContactSection />
+        </section>
+      </main>
     </>
   );
 }

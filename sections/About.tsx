@@ -92,12 +92,12 @@ export function AboutSection() {
           >
             <div className="flex flex-col items-start gap-3">
               <span className={`${plex.className} text-accent text-sm tracking-[0.3em] opacity-30`}>
-                Introduction
+                Introduccion
               </span>
 
               <div className="leading-none">
                 <TrueFocus
-                  sentence="About Me"
+                  sentence="Sobre Mí"
                   manualMode={false}
                   blurAmount={5}
                   borderColor="#8d47f5"

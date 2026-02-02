@@ -132,11 +132,11 @@ export default function ProjectsSection() {
             <p
               className={`${plex.className} section-subtitle mb-2 text-sm tracking-widest opacity-30`}
             >
-              Selected Works
+              Proyectos Seleccionados
             </p>
             <ShinyText
               className="section-title text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] pb-[0.15em]"
-              text="Gallery"
+              text="Mi Galeria"
               speed={2}
               delay={0}
               color="#b5b5b5"

@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useRouter } from "next/navigation";
 import { SocialCard } from "@/components/contact/SocialCard";
 import { ContactForm } from "@/components/contact/ContactForm";
 import LiquidEther from "@/components/contact/LiquidEther";
+import { usePageAnimations } from "@/animations/contactAnimations";
 
 const socials = [
   {
     name: "Instagram",
-    handle: "@tunegocio",
+    handle: "@dami26k",
     brandColor: "#E4405F",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/dami26k/",
     icon: (
       <svg
         className="w-6 h-6"
@@ -30,9 +30,9 @@ const socials = [
   },
   {
     name: "WhatsApp",
-    handle: "+1 234 567 890",
+    handle: "+57 301 6980983",
     brandColor: "#25D366",
-    href: "https://wa.me/1234567890",
+    href: "https://wa.me/573016980983",
     icon: (
       <svg
         className="w-6 h-6"
@@ -72,70 +72,18 @@ const socials = [
 ];
 
 export default function ContactPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const socialsRef = useRef<HTMLDivElement>(null);
-  const formSectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const {
+    containerRef,
+    titleRef,
+    subtitleRef,
+    socialsRef,
+    formSectionRef,
+  } = usePageAnimations();
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Initial states
-      gsap.set([titleRef.current, subtitleRef.current], {
-        opacity: 0,
-        y: 30,
-      });
-      gsap.set(socialsRef.current?.children || [], {
-        opacity: 0,
-        y: 20,
-      });
-      gsap.set(formSectionRef.current, {
-        opacity: 0,
-        x: 30,
-      });
-
-      // Timeline animation
-      const tl = gsap.timeline({
-        defaults: { ease: "power3.out" },
-      });
-
-      tl.to(titleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-      })
-        .to(
-          subtitleRef.current,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-          },
-          "-=0.4",
-        )
-        .to(
-          socialsRef.current?.children || [],
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1,
-          },
-          "-=0.3",
-        )
-        .to(
-          formSectionRef.current,
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.7,
-          },
-          "-=0.4",
-        );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+  const handleGoBack = () => {
+    router.push("/"); 
+  };
 
   return (
     <main ref={containerRef} className="relative min-h-screen bg-background">
@@ -160,6 +108,29 @@ export default function ContactPage() {
         />
       </div>
 
+      {/* Botón para volver */}
+      <div className="fixed top-4 left-4 z-20 md:top-6 md:left-6">
+        <button
+          onClick={handleGoBack}
+          className="group flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-background/80 backdrop-blur-sm border border-foreground/10 hover:bg-foreground/5 transition-all duration-300 hover:scale-105"
+          aria-label="Volver a la pantalla principal"
+        >
+          <svg
+            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <span className="hidden sm:inline">Volver al inicio</span>
+          <span className="sm:hidden">Inicio</span>
+        </button>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 px-4 py-28 md:px-8 lg:px-16">
         <div className="max-w-6xl mx-auto">
@@ -175,7 +146,7 @@ export default function ContactPage() {
               ref={subtitleRef}
               className="max-w-lg text-lg text-muted-foreground text-pretty"
             >
-              ¿Tienes un proyecto en mente? Nos encantaría escucharte. Elige tu
+              ¿Quieres llevar tus proyectos al siguiente nivel? Me encantaria escucharte. Elige tu
               canal favorito o envíanos un mensaje.
             </p>
           </div>
@@ -219,9 +190,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">
-                      Ciudad de México, MX
+                      Barranquilla, CO
                     </p>
-                    <p className="text-xs text-muted-foreground">Ubicación</p>
                   </div>
                 </div>
 
@@ -242,10 +212,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">
-                      hola@tunegocio.com
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      Email directo
+                      lucygomez2626@gmail.com
                     </p>
                   </div>
                 </div>

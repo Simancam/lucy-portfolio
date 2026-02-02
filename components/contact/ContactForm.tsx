@@ -101,7 +101,7 @@ export function ContactForm() {
           name="subject"
           type="text"
           required
-          placeholder="¿En qué podemos ayudarte?"
+          placeholder="¿En qué puedo ayudarte?"
           className="h-12 transition-all bg-card border-foreground/10 focus:border-foreground/30 placeholder:text-muted-foreground/50"
         />
       </div>
@@ -114,7 +114,7 @@ export function ContactForm() {
           id="message"
           name="message"
           required
-          placeholder="Cuéntanos más sobre tu proyecto..."
+          placeholder="Cuentame más sobre tu proyecto..."
           rows={5}
           className="transition-all resize-none bg-card border-foreground/10 focus:border-foreground/30 placeholder:text-muted-foreground/50"
         />
